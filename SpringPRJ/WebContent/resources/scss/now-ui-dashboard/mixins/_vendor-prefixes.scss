@@ -52,7 +52,7 @@
        transform: translate3d(0,$value,0) !important;
 }
 
-@mixin icon-gradient($color, $bottomColor: #000){
+@mixin icon-gradient(#A566FF;, #A566FF;){
     background: $color;
     background: -webkit-linear-gradient($color 0%, $bottomColor 80%);
     background: -o-linear-gradient($color 0%, $bottomColor 80%);
@@ -66,10 +66,10 @@
   }
 
   .nav li.active > a:not([data-toggle="collapse"]){
-    color: $color;
+    color: #A566FF;
 
     i{
-      color: $color;
+      color: #A566FF;
     }
   }
 }

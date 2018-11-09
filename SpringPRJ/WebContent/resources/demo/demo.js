@@ -234,9 +234,9 @@ demo = {
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: [ "MAR", "APR", "JUN", "JUL", "SEP", "OCT", "NOV"],
+        labels: ["3월", "4월",  "6월", "7월", "9월", "10월", "11월"],
         datasets: [{
-          label: "Data",
+          label: "모의고사",
           borderColor: chartColor,
           pointBorderColor: chartColor,
           pointBackgroundColor: "#E8D9FF",
@@ -249,7 +249,7 @@ demo = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [10, 15, 30, 55, 90, 135, 200]
+          data: [3.8, 4.11, 6.7, 7.11, 9.5, 10.16, 11.15]
         }]
       },
       options: {
@@ -332,9 +332,9 @@ demo = {
       type: 'line',
       responsive: true,
       data: {
-        labels: ["Mar", "Apr",  "Jun", "Jul", "Sep", "Oct", "Nov"],
+        labels: ["3월모의고사", "4월모의고사",  "6월모의고사", "7월모의고사", "9월모의고사", "10월모의고사", "수능"],
         datasets: [{
-          label: "Active Users",
+          label: "등급컷",
           borderColor: "#f96332",
           pointBorderColor: "#FFF",
           pointBackgroundColor: "#f96332",
@@ -348,8 +348,53 @@ demo = {
           data: [81, 88, 91, 93, 97, 88, 100]
         }]
       },
-      options: gradientChartOptionsConfiguration
-    });
+      options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          tooltips: {
+            bodySpacing: 4,
+            mode: "nearest",
+            intersect: 0,
+            position: "nearest",
+            xPadding: 10,
+            yPadding: 10,
+            caretPadding: 10
+          },
+          responsive: 1,
+          scales: {
+            yAxes: [{
+              gridLines: 0,
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawBorder: false
+              }
+            }],
+            xAxes: [{
+              display: 0,
+              gridLines: 0,
+              ticks: {
+                display: true
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawTicks: false,
+                display: false,
+                drawBorder: false
+              }
+            }]
+          },
+          layout: {
+            padding: {
+              left: 0,
+              right: 5,
+              top: 15,
+              bottom: 15
+            }
+          }
+        }
+     });
 
 
     // ------------------------- 빨강차트2 끝 ---------------------------
@@ -370,9 +415,9 @@ demo = {
       type: 'line',
       responsive: true,
       data: {
-        labels: ["Mar", "Apr",  "Jun", "Jul", "Sep", "Oct", "Nov"],
+        labels: ["3월모의고사", "4월모의고사",  "6월모의고사", "7월모의고사", "9월모의고사", "10월모의고사", "수능"],
         datasets: [{
-          label: "Email Stats",
+          label: "등급컷",
           borderColor: "#18ce0f",
           pointBorderColor: "#FFF",
           pointBackgroundColor: "#18ce0f",
@@ -386,7 +431,52 @@ demo = {
           data: [91, 89, 85, 89, 91, 88, 100]
         }]
       },
-      options: gradientChartOptionsConfigurationWithNumbersAndGrid
+      options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          tooltips: {
+            bodySpacing: 4,
+            mode: "nearest",
+            intersect: 0,
+            position: "nearest",
+            xPadding: 10,
+            yPadding: 10,
+            caretPadding: 10
+          },
+          responsive: 1,
+          scales: {
+            yAxes: [{
+              gridLines: 0,
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawBorder: false
+              }
+            }],
+            xAxes: [{
+              display: 0,
+              gridLines: 0,
+              ticks: {
+                display: true
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawTicks: false,
+                display: false,
+                drawBorder: false
+              }
+            }]
+          },
+          layout: {
+            padding: {
+              left: 0,
+              right: 5,
+              top: 15,
+              bottom: 15
+            }
+          }
+        }
     });
 
  // ------------------------- 초록차트 끝 ---------------------------
@@ -403,9 +493,9 @@ demo = {
     var a = {
       type: "line",
       data: {
-        labels: ["March", "April",  "June", "July",  "September", "October", "November"],
+        labels: ["3월모의고사", "4월모의고사",  "6월모의고사", "7월모의고사", "9월모의고사", "10월모의고사", "수능"],
         datasets: [{
-          label: "Active Countries",
+          label: "등급컷",
           backgroundColor: gradientFill,
           borderColor: "#2CA8FF",
           pointBorderColor: "#FFF",
@@ -446,7 +536,7 @@ demo = {
             display: 0,
             gridLines: 0,
             ticks: {
-              display: false
+              display: true
             },
             gridLines: {
               zeroLineColor: "transparent",
@@ -459,7 +549,7 @@ demo = {
         layout: {
           padding: {
             left: 0,
-            right: 0,
+            right: 5,
             top: 15,
             bottom: 15
           }
@@ -467,7 +557,7 @@ demo = {
       }
     };
 
- // ------------------------- 초록차트 끝 ---------------------------
+ // ------------------------- 파랑차트 끝 ---------------------------
     
     var viewsChart = new Chart(e, a);
   },

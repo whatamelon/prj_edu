@@ -50,9 +50,13 @@ public class UserController {
 	
 	@RequestMapping(value="/user/login")
 	public String login (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		/*String stu_num = request.getParameter("stu_num");
-		log.info(stu_num);*/
-		log.info("test");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		UserDTO udto = new UserDTO();
+		udto.setId(id);
+		udto.setPwd(pwd);
+		
 		return "/user/login";
 	}
 	
@@ -63,18 +67,24 @@ public class UserController {
 	
 	@RequestMapping(value="/user/findid")
 	public String findid (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		/*String stu_num = request.getParameter("stu_num");
-		log.info(stu_num);*/
-		log.info("test");
+		String name = request.getParameter("name");
+		String birthdate = request.getParameter("birthdate");
+		
+		UserDTO udto = new UserDTO();
+		udto.setName(name);
+		udto.setBirthdate(birthdate);
+		
 		return "/user/findid";
 	}
 	
 
 		@RequestMapping(value="/user/findid2")
 		public String findid2 (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-			/*String stu_num = request.getParameter("stu_num");
-			log.info(stu_num);*/
-			log.info("test");
+			String id = request.getParameter("id");
+			
+			UserDTO udto = new UserDTO();
+			udto.setId(id);
+			
 			return "/user/findid2";
 	
 }
@@ -86,17 +96,25 @@ public class UserController {
 		
 		@RequestMapping(value="/user/findpw")
 		public String findpw (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-			/*String stu_num = request.getParameter("stu_num");
-			log.info(stu_num);*/
-			log.info("test");
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			String birthdate = request.getParameter("birthdate");
+			
+			UserDTO udto = new UserDTO();
+			udto.setId(id);
+			udto.setName(name);
+			udto.setBirthdate(birthdate);
+			
 			return "/user/findpw";
 		}
 		
 		@RequestMapping(value="/user/findpw2")
 		public String findpw2 (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-			/*String stu_num = request.getParameter("stu_num");
-			log.info(stu_num);*/
-			log.info("test");
+			String pwd = request.getParameter("pwd");
+			
+			UserDTO udto = new UserDTO();
+			udto.setPwd(pwd);
+			
 			return "/user/findpw2";
 		}
 		
@@ -127,11 +145,11 @@ public class UserController {
 		//--------------------------------------------------로그인 후 홈페이지 끝---------------------------------------------------------------------------------------
 
 		
-		@RequestMapping(value="/user/divtest")
+		@RequestMapping(value="/user/koreanTable")
 		public String divtest (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 			/*String stu_num = request.getParameter("stu_num");
 			log.info(stu_num);*/
 			log.info("test");
-			return "/user/divtest";
+			return "/user/koreanTable";
 	}
 }

@@ -34,11 +34,8 @@
 </head>
 
 <body class="">
-
-<div>테스트</div>
-
   <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
+    <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
@@ -52,37 +49,37 @@
         <ul class="nav">
          
           <li>
-            <a href="./icons.html">
+            <a href="#">
               <i class="now-ui-icons education_atom"></i>
               <p style="font-size:15pt;">홈</p>
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="#">
               <i class="now-ui-icons location_map-big"></i>
               <p style="font-size:15pt;">국어 게시판</p>
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="#">
               <i class="now-ui-icons media-2_sound-wave"></i>
               <p style="font-size:15pt;">수학 게시판</p>
             </a>
           </li>
           <li>
-            <a href= "./user.html">
+            <a href= "#">
               <i class="now-ui-icons text_caps-small"></i>
               <p style="font-size:15pt;">영어 게시판</p>
             </a>
           </li>
           <li>
-            <a href="now-ui-icons design_app">
+            <a href="#">
               <i class="now-ui-icons design-2_ruler-pencil"></i>
               <p style="font-size:15pt;">공부템 게시판</p>
             </a>
           </li>
           <li>
-            <a href="./typography.html">
+            <a href="#">
               <i class="now-ui-icons users_single-02" ></i>
               <p style="font-size:15pt;">독서실 게시판</p>
             </a>
