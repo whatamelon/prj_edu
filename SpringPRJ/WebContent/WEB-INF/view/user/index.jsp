@@ -55,31 +55,31 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="user/koreanTable.do">
               <i class="now-ui-icons location_map-big"></i>
               <p style="font-size:15pt;">국어 게시판</p>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="user/mathTable.do">
               <i class="now-ui-icons media-2_sound-wave"></i>
               <p style="font-size:15pt;">수학 게시판</p>
             </a>
           </li>
           <li>
-            <a href= "#">
+            <a href= "user/englishTable.do">
               <i class="now-ui-icons text_caps-small"></i>
               <p style="font-size:15pt;">영어 게시판</p>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="user/itemTable.do">
               <i class="now-ui-icons design-2_ruler-pencil"></i>
               <p style="font-size:15pt;">공부템 게시판</p>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="user/roomTable.do">
               <i class="now-ui-icons users_single-02" ></i>
               <p style="font-size:15pt;">독서실 게시판</p>
             </a>
@@ -112,13 +112,13 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
           
-          <span style="width:70px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">로그인</a></span>
+          <span style="width:70px;"><a href="/user/login.do" style="font-size:15px; text-decoration:none;">로그인</a></span>
           
-          <span style="width:90px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">회원가입</a></span>
+          <span style="width:90px;"><a href="/user/createaccount.do" style="font-size:15px; text-decoration:none;">회원가입</a></span>
           
-          <span style="width:110px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">아이디 찾기</a></span>
+          <span style="width:110px;"><a href="/user/findid.do" style="font-size:15px; text-decoration:none;">아이디 찾기</a></span>
             
-          <span style="width:200px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">비밀번호 찾기</a></span>
+          <span style="width:200px;"><a href="/user/findpw.do" style="font-size:15px; text-decoration:none;">비밀번호 찾기</a></span>
              
           </div>
         </div>
@@ -138,7 +138,7 @@
       <div class="content">
         <div class="row">
           <div class="col-lg-4">
-            <div class="card card-chart">
+            <div class="card card-chart" style="height:400px;">
               <div class="card-header">
                 <h5 class="card-category">국어 등급컷</h5>
                 <h4 class="card-title">1등급</h4>
@@ -172,7 +172,7 @@
             <!-- 초록차트 시작 -->
            
           <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
+            <div class="card card-chart" style="height:400px;">
               <div class="card-header">
                 <h5 class="card-category">수학(가형) 등급컷</h5>
                 <h4 class="card-title">1등급</h4>
@@ -206,7 +206,7 @@
           <!--  파랑차트 시작 -->
           
           <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
+            <div class="card card-chart" style="height:400px;">
               <div class="card-header">
                 <h5 class="card-category">수학(나형) 등급컷</h5>
                 <h4 class="card-title">1등급</h4>

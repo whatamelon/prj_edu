@@ -103,7 +103,7 @@ function calBytes(str){
 <body onload="doOnload();">
 <h2>±Û ¼öÁ¤!</h2>
 <form name="f" method="post" action="/notice/NoticeUpdate.do" onsubmit="return doSubmit(this);">
-<input type="hidden" name="nSeq" value="<%=CmmUtil.nvl(request.getParameter("nSeq")) %>" />
+<input type="hidden" name="post_seq_no" value="<%=CmmUtil.nvl(request.getParameter("post_seq_no")) %>" />
 	<table border="1">
 		<col width="100px" />
 		<col width="500px" />

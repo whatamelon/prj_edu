@@ -26,7 +26,7 @@ if (rList==null){
 
 //상세보기 이동
 function doDetail(seq){
-	location.href="/notice/NoticeInfo.do?nSeq="+ seq;
+	location.href="/notice/NoticeInfo.do?post_seq_no="+ seq;
 }
 
 </script>	

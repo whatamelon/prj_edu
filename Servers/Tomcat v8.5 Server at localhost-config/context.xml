@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -25,4 +27,17 @@
     <!--
     <Manager pathname="" />
     -->
+    
+    <Resource name = "jdbc/OracleDB"
+				auth = "Container"
+				type = "javax.sql.DataSource"
+				username = "hong"
+				password = "1234"
+				driverClassName = "oracle.jdbc.OracleDriver"
+				url="jdbc:orcle:thin@localhost1521:OracleDB"
+				maxActive="20"
+				maxIdle="10"
+				maxWait="-1"
+	/>
+    
 </Context>

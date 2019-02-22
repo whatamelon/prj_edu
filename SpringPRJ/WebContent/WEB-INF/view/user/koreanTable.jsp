@@ -1,5 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="poly.dto.MemberDTO"%>
+<%@page import="poly.dto.PagingDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page import="poly.util.CmmUtil"%>
+<%@ page import="poly.dto.NoticeDTO"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.HashMap"%>
+<%@page import="poly.dto.UserDTO"%>
+<%
+   /* MemberDTO mDTO = (MemberDTO) request.getAttribute("mDTO"); */
+   /* session.setAttribute("id", mDTO.getMember_id() ); //세션 강제 적용, 로그인된 상태로 보여주기 위함 */
+
+   List<NoticeDTO> rList = (List<NoticeDTO>) request.getAttribute("rList");
+
+   PagingDTO paging = (PagingDTO) request.getAttribute("paging");
+
+   //게시판 조회 결과 보여주기
+   if (rList == null) {
+      rList = new ArrayList<NoticeDTO>();
+
+   }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -31,6 +52,27 @@
   
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/resources/demo/demo.css" rel="stylesheet" />
+  
+  <script type="text/javascript">
+   //상세보기 이동
+   function doDetail(seq) {
+      location.href = "/user/koreanContent.do?post_seq_no=" + seq;
+   }
+
+   function goPage(page) {
+      var pageCount =
+<%=paging.getPage_count()%>
+   ;
+      location.href = "/user/koreanTable.do?pageCount=" + pageCount
+            + "&pageNum=" + page;
+   }
+</script>
+<style>
+.hoverBoy:hover {
+	background-color : rgba(155, 193, 255, 0.5);
+	cursor : pointer;
+}
+</style>
 </head>
 
 <body class="">
@@ -41,7 +83,7 @@
     -->
       <div class="logo">
         
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal" style="font-size:35px;">
+        <a href="/user/index1.do" class="simple-text logo-normal" style="font-size:35px;">
          Edu_Moya
         </a>
       </div>
@@ -84,7 +126,6 @@
               <p style="font-size:15pt;">독서실 게시판</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -101,7 +142,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-             <p style="font-size:15pt;">국어게시판</p>
+             <p style="font-size:20pt;">국어게시판</p>
              <i class="now-ui-icons sport user_run-big"></i>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,13 +152,13 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
           
-          <span style="width:70px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">로그인</a></span>
+         <span style="width:150px;"><a href="/user/userInfoCheck.do" style="font-size:15px; text-decoration:none;">회원정보 수정</a></span>
           
-          <span style="width:90px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">회원가입</a></span>
+          <span style="width:90px;"><a href="/user/createaccount.do" style="font-size:15px; text-decoration:none;">회원가입</a></span>
           
-          <span style="width:110px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">아이디 찾기</a></span>
+          <span style="width:110px;"><a href="/user/findid.do" style="font-size:15px; text-decoration:none;">아이디 찾기</a></span>
             
-          <span style="width:200px;"><a href="/user/login.jsp" style="font-size:15px; text-decoration:none;">비밀번호 찾기</a></span>
+          <span style="width:200px;"><a href="/user/findpw.do" style="font-size:15px; text-decoration:none;">비밀번호 찾기</a></span>
              
           </div>
         </div>
@@ -133,152 +174,46 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
+                <h4 class="card-title"> 평가글게시판</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class=" text-primary">
-                      <th  class="text-center">
-                        	선생님
-                      </th>
-                      <th  class="text-center">
-                        	세부과목
-                      </th>
-                      <th  class="text-center">
-                        	제목
-                      </th>
-                      <th  class="text-center">
-                        	작성자
-                      </th>
-                      <th  class="text-center">
-                        	작성일자
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td  class="text-center">
-                          Dakota Rice
-                        </td>
-                        <td  class="text-center">
-                          Niger
-                        </td>
-                        <td  class="text-center">
-                          Oud-Turnhout
-                        </td>
-                        <td  class="text-center">
-                          $36,738
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Minerva Hooper
-                        </td>
-                        <td  class="text-center">
-                          Curaçao
-                        </td>
-                        <td  class="text-center">
-                          Sinaai-Waas
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Sage Rodriguez
-                        </td>
-                        <td  class="text-center">
-                          Netherlands
-                        </td>
-                        <td  class="text-center">
-                          Baileux
-                        </td>
-                        <td  class="text-center">
-                          $56,142
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Philip Chaney
-                        </td>
-                        <td  class="text-center">
-                          Korea, South
-                        </td>
-                        <td  class="text-center">
-                          Overland Park
-                        </td>
-                        <td  class="text-center">
-                          $38,735
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Doris Greene
-                        </td>
-                        <td  class="text-center">
-                          Malawi
-                        </td>
-                        <td  class="text-center">
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td  class="text-center">
-                          $63,542
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Mason Porter
-                        </td>
-                        <td  class="text-center">
-                          Chile
-                        </td>
-                        <td  class="text-center">
-                          Gloucester
-                        </td>
-                        <td  class="text-center">
-                          $78,615
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td  class="text-center">
-                          Jon Porter
-                        </td>
-                        <td  class="text-center">
-                          Portugal
-                        </td>
-                        <td  class="text-center">
-                          Gloucester
-                        </td>
-                        <td  class="text-center">
-                          $98,615
-                        </td>
-                        <td  class="text-center">
-                          $23,789
-                        </td>
-                      </tr>
-                    </tbody>
+                     <thead class="text-primary">
+                     						<th scope="cols" width="50" align="center"></th>
+                                            <th scope="cols" width="100" align="center">세부과목</th>
+                                            <th scope="cols" width="100" align="center">선생님</th>
+                                            <th scope="cols" width="100" align="center">제목</th>
+                                            <th scope="cols" width="100" align="center">닉네임</th> 
+                                            <th scope="cols" width="100" align="center">등록일</th>
+                                        </thead>
+                     <tbody>
+                                           <%
+                           for (int i = 0; i < rList.size(); i++) {
+                              NoticeDTO rDTO = rList.get(i);
+
+                              if (rDTO == null) {
+                                 rDTO = new NoticeDTO();
+                              }
+                        %>
+                        <tbody class="hoverBoy">
+                           <tr>
+                              <th scope="row" align="center">
+                              <td ><%=CmmUtil.nvl(rDTO.getSpec_sub())%></td>
+                              <td ><%=CmmUtil.nvl(rDTO.getTeacher())%></td>
+                              <td ><a href="javascript:doDetail('<%=CmmUtil.nvl(rDTO.getPost_seq_no())%>');"><%=CmmUtil.nvl(rDTO.getTitle())%></a></td>
+                              <td ><%=CmmUtil.nvl(rDTO.getUsr_nickname())%></td>
+                              <td ><%=CmmUtil.nvl(rDTO.getReg_dt())%></td>
+                           </tr>
+                        </tbody>
+                        <%}%>
                   </table>
                 </div>
               </div>
+              <div class="mid" style="text-align:center;">
+               <%=fnPaging(paging.getPage_count(), 10, paging.getPage_num(), paging.getTotal_count())%>
+               <a href="/user/koreanWrite.do">[글쓰기]</a>
+            </div>
             </div>
           </div>
     </div>
@@ -306,3 +241,62 @@
  
 </body>
 </html>
+<!-- 페이징 -->
+<%!//페이지num, 전체Data count만 전달받아 출력.
+   private String fnPaging(int pageNum, int totalCount) {
+
+      int pageCount = 10; // 페이지별 출력 row 수
+      int blockCount = 10; // 화면에 출력할 block 수
+      return fnPaging(pageCount, blockCount, pageNum, totalCount);
+   }
+
+   //pageCount, blockCount, pageNum, totalCount 를 전달받아 출력.
+   private String fnPaging(int pageCount, int blockCount, int pageNum, int totalCount) {
+
+      String pagingStr = "";
+
+      // 전체 페이지수
+      int totalPageCount = totalCount / pageCount; // 전체 페이지 수
+      if (totalCount % pageCount > 0)
+         totalPageCount++; // 전체 페이지수+1 (나머지가 있을 경우.)
+
+      // 전체 블럭수
+      int totalBlockCount = totalPageCount / blockCount; // 전체 블럭수
+      if (totalBlockCount % blockCount > 0)
+         totalBlockCount++; // 전체 블럭수+1 (나머지가 있을 경우.)
+
+      // 현재 블럭의 시작 페이지
+      int startPage = pageNum / blockCount * blockCount + 1;
+      if (pageNum % blockCount == 0)
+         startPage -= blockCount;
+
+      // 현재 블럭의 마지막 페이지.
+      int endPage = startPage + blockCount - 1;
+      if (endPage > totalPageCount)
+         endPage = totalPageCount;
+
+      //만약 현재 블럭의 시작 페이지가 1보다 크다면. 이전 블럭 . 처음 블럭 버튼 생성.
+      if (startPage > 1) {
+         //pagingStr = "[<<1][<"+(startPage-1)+"]";
+         pagingStr = "<input type=button value=<< onclick='goPage(1);'>";
+         pagingStr += "<input type=button value=<  onclick='goPage(" + (startPage - 1) + ");'>";
+      }
+
+      for (int i = startPage; i <= endPage; i++) {
+
+         if (i == pageNum)
+            pagingStr += "[현재]";
+         //else pagingStr += "["+i+"]";
+         else
+            pagingStr += "<input type=button value=" + i + " onclick='goPage(" + i + ");'>";
+      }
+
+      //만약 현재 블럭의 마지막 페이지가 전체 마지막 페이지보다 작다면. 다음블럭, 마지막 블럭 버튼 생성. 
+      if (endPage < totalPageCount) {
+         //pagingStr += "[>"+(endPage+1)+"][>>"+totalPageCount+"]";
+         pagingStr += "<input type=button value='>'  onclick='goPage(" + (endPage + 1) + ");'>";
+         pagingStr += "<input type=button value='>>' onclick='goPage(" + totalPageCount + ");'>";
+      }
+
+      return pagingStr;
+   }%>

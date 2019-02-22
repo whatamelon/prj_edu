@@ -6,7 +6,7 @@
     border-radius: $btn-round-radius;
     color: $black-color;
     line-height: normal;
-    font-size: $font-size-small;
+    font-size: 1.2571em;
     @include transition-input-focus-color();
     @include box-shadow(none);
 
@@ -301,7 +301,7 @@
 }
 textarea.form-control{
     max-width: 100%;
-    max-height: 80px;
+    max-height: 400px;
     padding: 10px 10px 0 0;
     resize: none;
     border: none;

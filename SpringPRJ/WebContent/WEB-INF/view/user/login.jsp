@@ -45,16 +45,20 @@
 
     <div class="grid__container">
 
-      <form action="/user/index1.do" method="post" id="submitForm" class="form form--login">
-
+      <form action="/user/loginProc.do" method="post" id="submitForm" class="form form--login">
         <div class="form__field">
           <label class="fontawesome-user" for="login__username"><span class="hidden">아이디</span></label>
-          <input id="id" type="text" name="id_login" class="form__input" placeholder="아이디" required>
+          <input id="id" type="text" name="usr_id" class="form__input" placeholder="아이디" required>
         </div>
 
         <div class="form__field">
           <label class="fontawesome-lock" for="login__password"><span class="hidden">Password</span></label>
-          <input id="pwd" type="password" name="pwd_login" class="form__input" placeholder="비밀번호" required>
+          <input id="pwd" type="password" name="password" class="form__input" placeholder="비밀번호" required>
+        </div>
+
+		<div class="form__field">
+          <label class="fontawesome-lock" for="login__nickname"><span class="hidden">닉네임</span></label>
+          <input id="pwd" type="text" name="usr_nickname" class="form__input" placeholder="닉네임" required>
         </div>
 
         <div class="form__field">
@@ -78,8 +82,9 @@
 
 function check(){ 
 
-	 var stuNum = document.getElementById('id');
-	 var pwd = document.getElementById('pwd_login');
+	 var stuNum = document.getElementById('usr_id');
+	 var pwd = document.getElementById('password');
+	 var pwd = document.getElementById('usr_nickname');
 	 
 	 $('#submitForm').submit();
   

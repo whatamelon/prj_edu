@@ -5,27 +5,119 @@
 	<!-- insert, update, delete, select -->
 	
 	<insert id="insertUser" parameterType="UserDTO">
-		INSERT INTO User
+		INSERT INTO USER_INFO
 		(
-			ID,
+			USR_SEQ_NO,
+			USR_ID,
 			PASSWORD,
-			NAME,
-			NICKNAME,
-			BIRTHDATE
+			USR_NAME,
+			REG_USR_SEQ_NO,
+			REG_DT,
+			USR_NICKNAME,
+			USR_BIRTHDATE
 		)
 		VALUES
 		(
+			USR_SEQ_NO.NEXTVAL,
 			#{usr_id},
 			#{password},
 			#{usr_name},
+			USR_SEQ_NO.CURRVAL,
+			SYSDATE,
 			#{usr_nickname},
 			#{usr_birthdate}
 		)
 	</insert>
+	
+	<select id="login" parameterType="UserDTO" resultType="UserDTO">
+			SELECT 
+				USR_SEQ_NO as usr_seq_no,
+         		USR_ID as usr_id,
+         		PASSWORD as password,
+         		USR_NAME as usr_name,
+       			USR_NICKNAME as usr_nickname,
+        		USR_BIRTHDATE as usr_birthdate
+      		FROM USER_INFO
+      		WHERE USR_ID=#{usr_id}  AND PASSWORD=#{password}
+      		
+	</select>
+	
+	<select id="findid" parameterType="UserDTO" resultType="UserDTO">
+			SELECT
+				USR_SEQ_NO as usr_seq_no,
+				USR_ID as usr_id,
+				USR_NAME as usr_name,
+				USR_BIRTHDATE as usr_birthdate
+			FROM USER_INFO
+			WHERE USR_NAME=#{usr_name}  AND USR_BIRTHDATE=#{usr_birthdate}
+	</select>
+	
+
+	<select id="findpw" parameterType="UserDTO" resultType="UserDTO">
+			SELECT
+				USR_SEQ_NO as usr_seq_no,
+				USR_ID as usr_id,
+				PASSWORD as password,
+				USR_NAME as usr_name,
+				USR_BIRTHDATE as usr_birthdate
+			FROM USER_INFO
+			WHERE USR_ID=#{usr_id}  AND USR_NAME=#{usr_name}  AND USR_BIRTHDATE=#{usr_birthdate}
+	</select>
+
+
+	<update id="updateUser" parameterType="UserDTO">
+      UPDATE USER_INFO
+         SET 
+		   	USR_ID = #{usr_id},
+			PASSWORD = #{password},
+			USR_NAME = #{usr_name},
+			USR_NICKNAME = #{usr_nickname},
+			USR_BIRTHDATE = #{usr_birthdate}
+       WHERE USR_SEQ_NO = #{usr_seq_no}
+   </update>
+
+
+	<delete id="deleteUser" parameterType="UserDTO">
+		DELETE
+		FROM USER_INFO
+		WHERE USR_SEQ_NO = #{usr_seq_no}
+	</delete>
+
+	<select id="getUserListTotalCount" resultType="java.lang.Integer">
+		SELECT 
+			COUNT(0)
+			AS CNT
+			FROM USER_INFO
+	</select>
+	
+	
+	<select id="getUserList" resultType="UserDTO">
+	SELECT 
+		USR_SEQ_NO as usr_seq_no,
+         		USR_ID as usr_id,
+         		PASSWORD as password,
+         		USR_NAME as usr_name,
+       			USR_NICKNAME as usr_nickname,
+        		USR_BIRTHDATE as usr_birthdate
+	FROM USER_INFO
+	</select>
+
+	<select parameterType="PagingDTO" id="getUserList2" resultType="UserDTO">
+		SELECT
+			USR_SEQ_NO as usr_seq_no,
+         		USR_ID as usr_id,
+         		PASSWORD as password,
+         		USR_NAME as usr_name,
+       			USR_NICKNAME as usr_nickname,
+        		USR_BIRTHDATE as usr_birthdate
+		FROM (
+		SELECT
+		ROWNUM AS RNUM
+		, A.*FROM USER_INFO A
+		ORDER BY USR_SEQ_NO DESC) T
+		WHERE RNUM BETWEEN
+		(( #{page_num}-1) * #{page_count} + 1 ) AND ( #{page_num} * #{page_count} )
+	</select>
+	
 
 </mapper>
-
-
-
-
-
